@@ -1,0 +1,25 @@
+<?php
+	class UNIT{
+		function add_unit($db,$unit_name)
+		{
+           $stmt1 = $db->prepare("insert into `unit` values (?,?)");
+           $stmt1->execute(array(null,$unit_name));
+		}
+
+		function list_unit($db)
+		{
+		  $data=array();
+          $stmt1 = $db->prepare("SELECT * FROM `unit`");
+          $stmt1->execute();
+          for($i=0;$i<=$stmt1->rowCount()-1;$i++)
+              $data[]=$stmt1->fetch(PDO::FETCH_ASSOC);
+          return $data;
+    }
+
+		function delete_unit($db,$unit_id)
+		{
+           $stmt1 = $db->prepare("DELETE from `unit` where unit_id=?");
+           $stmt1->execute(array($unit_id));
+		}
+	}
+?>

@@ -1,0 +1,98 @@
+<?php
+	class DEPARTMENT{
+		function add_department($db,$dept_name,$dept_group)
+		{
+           $stmt1 = $db->prepare("insert into `department` values (?,?,?)");
+           $stmt1->execute(array(null,$dept_name,$dept_group));
+		}
+
+		function list_department($db)
+		{
+		  $data=array();
+          $stmt1 = $db->prepare("SELECT * FROM `department`");
+          $stmt1->execute();
+          for($i=0;$i<=$stmt1->rowCount()-1;$i++)
+              $data[]=$stmt1->fetch(PDO::FETCH_ASSOC);
+          return $data;
+    }
+
+		function delete_department($db,$dept_id)
+		{
+           $stmt1 = $db->prepare("DELETE from `department` where dept_id=?");
+           $stmt1->execute(array($dept_id));
+		}
+		
+	}
+	
+	class EMPLOYEE{
+		function add_employee($db,$surname,$firstname,$middlename,$dept_id)
+		{
+           $stmt1 = $db->prepare("insert into `employee` values (?,?,?,?,?)");
+           $stmt1->execute(array(null,$surname,$firstname,$middlename,$dept_id));
+		}
+
+		function list_employee($db)
+		{
+		  $data=array();
+          $stmt1 = $db->prepare("SELECT * FROM `employee`");
+          $stmt1->execute();
+          for($i=0;$i<=$stmt1->rowCount()-1;$i++)
+              $data[]=$stmt1->fetch(PDO::FETCH_ASSOC);
+          return $data;
+    }
+
+		function delete_employee($db,$emp_id)
+		{
+           $stmt1 = $db->prepare("DELETE from `employee` where emp_id=?");
+           $stmt1->execute(array($emp_id));
+		}
+	}
+
+	class ITEM{
+		function add_item($db,$particular)
+		{
+           $stmt1 = $db->prepare("insert into `item` values (?,?)");
+           $stmt1->execute(array(null,$particular));
+		}
+
+		function list_item($db)
+		{
+		  $data=array();
+          $stmt1 = $db->prepare("SELECT * FROM `item`");
+          $stmt1->execute();
+          for($i=0;$i<=$stmt1->rowCount()-1;$i++)
+              $data[]=$stmt1->fetch(PDO::FETCH_ASSOC);
+          return $data;
+    }
+
+		function delete_item($db,$it_no)
+		{
+           $stmt1 = $db->prepare("DELETE from `item` where it_no=?");
+           $stmt1->execute(array($it_no));
+		}
+	}
+
+	class SUPPLIER{
+		function add_supplier($db,$supp_name,$contact_person,$supp_contact_no,$supp_email)
+		{
+           $stmt1 = $db->prepare("insert into `supplier` values (?,?,?,?,?)");
+           $stmt1->execute(array(null,$supp_name,$contact_person,$supp_contact_no,$supp_email));
+		}
+
+		function list_supplier($db)
+		{
+		  $data=array();
+          $stmt1 = $db->prepare("SELECT * FROM `supplier`");
+          $stmt1->execute();
+          for($i=0;$i<=$stmt1->rowCount()-1;$i++)
+              $data[]=$stmt1->fetch(PDO::FETCH_ASSOC);
+          return $data;
+    }
+
+		function delete_supplier($db,$supp_id)
+		{
+           $stmt1 = $db->prepare("DELETE from `supplier` where supp_id=?");
+           $stmt1->execute(array($supp_id));
+		}
+	}
+?>

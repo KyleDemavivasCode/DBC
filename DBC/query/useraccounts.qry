@@ -1,0 +1,11 @@
+<?php
+	class USERACCOUNTS{
+		function verify_user($db,$username,$password)
+		{
+           $stmt1 = $db->prepare("select * from `useraccounts` where `username`=? and `password`=?");
+           $stmt1->execute(array($username,$password));
+		   
+		   return $stmt1->rowCount();
+		}
+	}
+?>
