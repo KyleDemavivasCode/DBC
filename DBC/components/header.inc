@@ -7,7 +7,8 @@
     <title>Admin Page</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/css/bootstrap-select.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -73,9 +74,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="menu.php">
+                        <a href="PRS.php">
                             <i class="material-icons">class</i>
-                            <span>Manage Unit</span>
+                            <span>PRS</span>
                         </a>
                     </li>
 

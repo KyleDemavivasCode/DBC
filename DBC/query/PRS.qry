@@ -1,0 +1,25 @@
+<?php
+	class PRS{
+		function add_prs($db,$dept_id,$it_no,$purpose,$qty,$price,$date_prep,$date_needed,$supp_id,$app_status)
+		{
+           $stmt1 = $db->prepare("INSERT INTO `prs` VALUES (?,?,?,?,?,?,?,?,?,?)");
+           $stmt1->execute(array(null,$dept_id,$it_no,$purpose,$qty,$price,$date_prep,$date_needed,$supp_id,$app_status));
+		}
+
+		function list_prs($db)
+		{
+		  $data=array();
+          $stmt1 = $db->prepare("SELECT * FROM `prs`");
+          $stmt1->execute();
+          for($i=0;$i<=$stmt1->rowCount()-1;$i++)
+              $data[]=$stmt1->fetch(PDO::FETCH_ASSOC);
+          return $data;
+    }
+
+		function delete_prs($db,$prs_no)
+		{
+           $stmt1 = $db->prepare("DELETE from `prs` where prs_no=?");
+           $stmt1->execute(array($prs_no));
+		}
+	}
+?>

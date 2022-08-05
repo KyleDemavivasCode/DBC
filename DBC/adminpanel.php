@@ -159,7 +159,7 @@
                                 </div>
 								
 								<label>Department ID</label>
-									 <div class="body">
+							<div class="body">
                             <div class="row clearfix">
                                 <div class="col-md-9">
                                     <select class="form-control show-tick" name="dept_id" required>
